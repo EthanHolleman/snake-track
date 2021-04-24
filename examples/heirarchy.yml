@@ -1,0 +1,5 @@
+trackName: "outermost track name"
+  shortLabel: "Test"
+  type: "bigWig"
+  subtracks:
+    
