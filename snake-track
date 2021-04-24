@@ -1,12 +1,20 @@
 #!/usr/bin/env python
+from pathlib import Path
+
 from snake_track.args import get_args
 from snake_track.bucket_upload import upload_files_to_s3_bucket
+
 
 def main():
     args = get_args()
     if 'bucketName' in args:  # this is a bucket uplaod
-        
-        
+        output = upload_files_to_s3_bucket(
+            args.aws_exe, args.bucketName, args.files, args.tsv
+            )
+        if not Path(output).is_file():  # did not write to tsv
+            print(output)
+    
+    
 
 if __name__ == '__main__':
     main()

@@ -10,12 +10,11 @@ def get_args():
     return args
 
     
-
 def upload_files_to_bucket(subparsers):
     upload_bucket = subparsers.add_parser('bucketUpload', help='Upload list of files to an existing S3 bucket')
     upload_bucket.add_argument('bucketName', metavar='B', help='Bucket to upload to')
     upload_bucket.add_argument('files', metavar='F', help='Filepaths to upload or directory of files to upload.', nargs='+')
-    upload_bucket.add_argument('--tsv', metavar='OT', help='Output filepaths and S3 urls to a tsv file at this location. Else prints to stout')
+    upload_bucket.add_argument('--tsv', metavar='OT', default=False, help='Output filepaths and S3 urls to a tsv file at this location. Else prints to stout')
     return subparsers
 
     
